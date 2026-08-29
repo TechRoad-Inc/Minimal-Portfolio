@@ -16,8 +16,7 @@ Minimal, dark bento-grid portfolio — smooth animations, canvas grain, direct-s
 
 | | |
 |---|---|
-| ![Hero](public/assets/avatar.png) | ![Cover](public/assets/cover.jpg) |
-| ![Contact](public/assets/cover.jpg) | ![Theme](public/assets/avatar.png) |
+| ![#1](public/assets/Landing-page.png) | ![#2](public/assets/Contact-page.png) |
 
 <div align="center">
 
@@ -43,7 +42,7 @@ Minimal, dark bento-grid portfolio — smooth animations, canvas grain, direct-s
 git clone <your-repo-url>
 cd updated_version
 npm install
-cp config.example.js config.js   # then edit it
+enter your email and app password in config.js   # then edit it
 npm start
 ```
 
