@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>har0r — me</title>
+<meta name="description" content="TechRoad Portfolio — minimal, dark, fast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  Portfolio — Copyright (c) 2026 TechRoad Inc. All rights reserved.
+  Customer: Edit config.js (EMAIL + APP_PASSWORD) then npm install && npm start
+  Direct send, beautiful HTML email, no third-party service.
+-->
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch to light mode" title="Switch to light mode">☼</button>
+
+<section class="wrap">
+  <div class="head fade-in">
+    <div>
+      <h1>Hello, i'm <span class="accent">Haroun</span> <span class="wave">👋</span></h1>
+      <p>just me — not a brand, not a business. i like quiet work, dark vibes, and keeping it real.</p>
+    </div>
+  </div>
+
+  <div class="bento">
+
+    <div class="card card-ava fade-in">
+      <img class="ava-img" src="assets/avatar.png" alt="har0r" loading="eager">
+      <div class="ava-overlay"></div>
+      <div class="ava-top"><span>✦</span> HARIUM <span>✦</span></div>
+      <div class="ava-bottom">
+        <span><h2>#Harium .</h2></span>
+        <span class="muted2">Offline but always here</span>
+      </div>
+    </div>
+
+    <div class="card card-about fade-in">
+      <div class="label"><span>✦</span> ABOUT ME <span>✦</span></div>
+      <p>not a company — just me and my ideas. i love minimal things, night thoughts, and building for myself.</p>
+      <div class="chips"><span>music</span><span>games</span><span>code</span><span>calm</span></div>
+    </div>
+
+    <div class="card card-cover fade-in">
+      <img class="cover-img" src="assets/cover.jpg" alt="cover" loading="eager">
+      <div class="cover-overlay"></div>
+      <div class="cover-text">
+        <span class="muted">EGYPT · MOMENT</span>
+        <span class="cover-caption">a night to remember</span>
+      </div>
+    </div>
+
+    <div class="card card-stack fade-in">
+      <div class="label"><span>✦</span> I USE <span>✦</span></div>
+      <div class="marquee">
+        <div class="track">
+          <span><img src="https://cdn.simpleicons.org/html5/white"> html</span>
+          <span><img src="https://cdn.simpleicons.org/css/white"> css</span>
+          <span><img src="https://cdn.simpleicons.org/javascript/white"> js</span>
+          <span><img src="https://cdn.simpleicons.org/github/white"> github</span>
+          <span><img src="https://cdn.simpleicons.org/html5/white"> html</span>
+          <span><img src="https://cdn.simpleicons.org/css/white"> css</span>
+          <span><img src="https://cdn.simpleicons.org/javascript/white"> js</span>
+          <span><img src="https://cdn.simpleicons.org/github/white"> github</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-links fade-in">
+      <div class="label"><span>✦</span> FIND ME <span>✦</span></div>
+      <div class="links">
+        <a href="https://github.com/har0r" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/github/white" alt="">Github</a>
+        <a href="https://x.com/Harr0r" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/x/white" alt="">X / Twitter</a>
+        <a href="https://discord.com/1508137411757080768" target="_blank" rel="noreferrer"><img src="https://cdn.simpleicons.org/discord/white" alt="">Discord Username</a>
+        <a class="email-link" href="#" id="emailLinkTop" aria-label="Contact Me" title="Contact Me"><img src="https://cdn.simpleicons.org/gmail/white" alt="">Contact Me</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="contact-section fade-in" id="contact">
+    <div class="label"><span>✦</span> GET IN TOUCH <span>✦</span></div>
+    <p class="contact-subtitle">Have something to say? Drop me a message.</p>
+    <form id="contactForm" class="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="formName">Name <span class="required">*</span></label>
+          <input type="text" id="formName" name="from_name" placeholder="Your name" required>
+          <span class="field-error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="formEmail">Email <span class="required">*</span></label>
+          <input type="email" id="formEmail" name="from_email" placeholder="you@example.com" required>
+          <span class="field-error" id="emailError"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="formPhone">Phone <span class="optional">(optional)</span></label>
+        <input type="tel" id="formPhone" name="phone" placeholder="+1 (555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="formMessage">Message <span class="required">*</span></label>
+        <textarea id="formMessage" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <span class="field-error" id="messageError"></span>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-text">Send Message</span>
+        <span class="btn-loader" aria-hidden="true"></span>
+      </button>
+      <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <footer class="site-footer fade-in">
+    <div class="footer-inner">
+      <span class="muted2">&copy; 2026 TechRoad Inc. &middot; All rights reserved</span>
+      <a href="#" id="emailLinkFooter" class="footer-email"></a>
+    </div>
+  </footer>
+
+ </section>
+
+<script src="script.js"></script>
+</body>
+</html>

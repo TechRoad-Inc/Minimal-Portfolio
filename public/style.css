@@ -1,0 +1,346 @@
+/* ============================================================
+   Portfolio — Enhanced Stylesheet
+   Copyright (c) 2026 TechRoad Inc. All rights reserved.
+   ============================================================ */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#060608;color:#fff;
+  font-family:'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.muted{color:rgba(255,255,255,.55);font-size:13px;line-height:1.6}
+.muted2{color:rgba(255,255,255,.45);font-size:12px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.4)}
+.accent{color:#c0392b}
+
+/* ── Background Canvas ──────────────────────────────────────── */
+#bgCanvas{position:fixed;inset:0;z-index:-1;width:100%;height:100%;display:block}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.wrap{max-width:1280px;margin:0 auto;padding:24px 56px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+@media(max-width:1024px){.wrap{padding:24px 24px;min-height:auto}}
+@media(max-width:640px){.wrap{padding:20px 16px}}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px}
+.head h1{font-size:30px;font-weight:400;letter-spacing:-.02em;transition:color .3s}
+.head p{font-size:14px;color:rgba(255,255,255,.55);max-width:520px;line-height:1.6;margin-top:8px}
+.wave{display:inline-block;animation:wave 2s infinite;transform-origin:70% 70%}
+@keyframes wave{0%,100%{transform:rotate(0)}20%{transform:rotate(14deg)}40%{transform:rotate(-8deg)}60%{transform:rotate(10deg)}}
+
+/* ── Bento Grid ─────────────────────────────────────────────── */
+.bento{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:220px 220px;gap:14px}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}.card-ava{grid-row:span 2;min-height:360px}}
+@media(max-width:640px){.bento{grid-template-columns:1fr;grid-template-rows:auto}}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.card{
+  background:rgba(17,17,17,.88);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:20px;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(10px);
+  transition:border-color .35s cubic-bezier(.4,0,.2,1),
+             transform .35s cubic-bezier(.4,0,.2,1),
+             box-shadow .35s cubic-bezier(.4,0,.2,1);
+}
+.card:hover{
+  border-color:rgba(255,255,255,.16);
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+
+.label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:8px;justify-content:center}
+.label span{opacity:.5}
+
+/* ── Avatar Card ────────────────────────────────────────────── */
+.card-ava{grid-row:span 2;padding:0;min-height:454px;background:#0a0a0a}
+.ava-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:contrast(1.02) brightness(.95);display:block;transition:filter .5s,transform .6s cubic-bezier(.4,0,.2,1)}
+.card-ava:hover .ava-img{filter:contrast(1.05) brightness(1);transform:scale(1.03)}
+.ava-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.08) 35%,rgba(0,0,0,.62) 100%)}
+.ava-top{position:relative;z-index:1;padding:20px;display:flex;align-items:center;gap:8px;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(255,255,255,.7)}
+.ava-bottom{position:absolute;z-index:1;bottom:0;left:0;right:0;padding:18px 20px;display:flex;flex-direction:column;gap:4px;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)}
+.ava-bottom span:first-child{font-size:14px;font-weight:600}
+
+/* ── About Card ─────────────────────────────────────────────── */
+.card-about{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.card-about p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.75);text-align:center}
+.chips{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:2px}
+.chips span{
+  font-size:11px;color:rgba(255,255,255,.6);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  padding:5px 10px;border-radius:999px;
+  transition:background .3s,border-color .3s,transform .3s,color .3s;
+}
+.chips span:hover{
+  background:rgba(192,57,43,.12);
+  border-color:rgba(192,57,43,.35);
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+/* ── Cover Card ─────────────────────────────────────────────── */
+.card-cover{padding:0;overflow:hidden;min-height:220px}
+.cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.85) contrast(1.02);display:block;transition:filter .5s,transform .6s cubic-bezier(.4,0,.2,1)}
+.card-cover:hover .cover-img{filter:brightness(.95) contrast(1.04);transform:scale(1.04)}
+.cover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68),transparent 58%)}
+.cover-text{position:absolute;bottom:14px;left:16px;right:16px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.cover-caption{font-size:13px;color:rgba(255,255,255,.85)}
+
+/* ── Stack / Marquee Card ───────────────────────────────────── */
+.card-stack{display:flex;flex-direction:column;gap:16px;justify-content:center;min-width:0}
+.marquee{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);width:100%}
+.track{display:flex;gap:8px;width:max-content;animation:marq 18s linear infinite;will-change:transform}
+.track span{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:9px 12px;font-size:12px;white-space:nowrap;flex-shrink:0;transition:background .3s,border-color .3s}
+.track span:hover{background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.3)}
+.track img{width:14px;height:14px;flex-shrink:0}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ── Links Card ─────────────────────────────────────────────── */
+.card-links{display:flex;flex-direction:column;gap:16px;justify-content:center;background:linear-gradient(145deg,rgba(22,22,22,.94),rgba(12,12,12,.9))}
+.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:2px}
+.links a{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  min-width:0;padding:10px 8px;
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;
+  background:rgba(255,255,255,.035);
+  font-size:12px;color:rgba(255,255,255,.68);
+  transition:background .3s cubic-bezier(.4,0,.2,1),
+             border-color .3s,
+             transform .3s cubic-bezier(.4,0,.2,1),
+             color .3s,
+             box-shadow .3s;
+  text-align:center;white-space:nowrap;
+}
+.links a img{width:15px;height:15px;flex:0 0 15px;opacity:.78;transition:opacity .3s}
+.links a:hover img{opacity:1}
+.links .email-link img{width:15px;height:15px;flex-basis:15px;opacity:.78}
+.links a:hover{color:#fff;background:rgba(192,57,43,.14);border-color:rgba(192,57,43,.4);transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,57,43,.15)}
+.links .email-link{grid-column:auto}
+@media(max-width:640px){.links a{font-size:11px}.links .email-link{white-space:normal;overflow-wrap:anywhere}}
+
+/* ── Theme Toggle ───────────────────────────────────────────── */
+.theme-toggle{
+  position:fixed;top:22px;right:24px;z-index:10;
+  width:40px;height:40px;
+  border:1px solid rgba(255,255,255,.12);border-radius:50%;
+  background:rgba(17,17,17,.82);color:#fff;
+  font-size:20px;line-height:1;cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:background .3s,border-color .3s,transform .3s cubic-bezier(.4,0,.2,1);
+}
+.theme-toggle:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);transform:rotate(15deg) scale(1.1)}
+
+/* ── Contact Section ────────────────────────────────────────── */
+.contact-section{
+  margin-top:56px;
+  padding:40px 36px 44px;
+  background:rgba(17,17,17,.88);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  backdrop-filter:blur(10px);
+  transition:border-color .35s,box-shadow .35s;
+}
+.contact-section:hover{
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 8px 40px rgba(0,0,0,.2);
+}
+.contact-subtitle{
+  text-align:center;font-size:14px;
+  color:rgba(255,255,255,.5);
+  margin:12px 0 32px;
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+.contact-form{display:flex;flex-direction:column;gap:20px;max-width:640px;margin:0 auto;width:100%}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:540px){.form-row{grid-template-columns:1fr}}
+
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{
+  font-size:12px;font-weight:500;
+  color:rgba(255,255,255,.6);
+  letter-spacing:.02em;
+}
+.required{color:#c0392b}
+.optional{color:rgba(255,255,255,.3);font-weight:400;font-size:11px}
+
+.form-group input,
+.form-group textarea{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  padding:12px 14px;
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:13.5px;color:#fff;
+  outline:none;
+  transition:border-color .3s,background .3s,box-shadow .3s;
+  resize:vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+  color:rgba(255,255,255,.25);
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:rgba(192,57,43,.5);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 0 0 3px rgba(192,57,43,.1);
+}
+.form-group input.error,
+.form-group textarea.error{
+  border-color:rgba(220,50,47,.6);
+  box-shadow:0 0 0 3px rgba(220,50,47,.1);
+}
+
+.field-error{
+  font-size:11px;color:rgba(220,50,47,.9);
+  min-height:0;overflow:hidden;
+  transition:max-height .3s,opacity .3s;
+  max-height:0;opacity:0;
+}
+.field-error.visible{max-height:40px;opacity:1}
+
+/* ── Submit Button ──────────────────────────────────────────── */
+.submit-btn{
+  align-self:flex-start;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;
+  background:rgba(192,57,43,.85);
+  border:1px solid rgba(192,57,43,.4);
+  border-radius:12px;
+  color:#fff;font-family:'Inter',system-ui,sans-serif;
+  font-size:13.5px;font-weight:500;
+  cursor:pointer;
+  transition:background .3s,border-color .3s,transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;
+}
+.submit-btn:hover{
+  background:rgba(192,57,43,1);
+  border-color:rgba(192,57,43,.6);
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(192,57,43,.3);
+}
+.submit-btn:active{transform:translateY(0);box-shadow:none}
+.submit-btn:disabled{
+  opacity:.55;cursor:not-allowed;
+  transform:none;box-shadow:none;
+}
+.btn-text{transition:opacity .3s}
+.btn-loader{
+  display:none;
+  width:16px;height:16px;
+  border:2px solid rgba(255,255,255,.25);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+.submit-btn.loading .btn-text{opacity:0}
+.submit-btn.loading .btn-loader{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Form Status ────────────────────────────────────────────── */
+.form-status{
+  text-align:center;font-size:13px;
+  padding:12px 16px;border-radius:12px;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s,opacity .4s,padding .4s;
+}
+.form-status.visible{max-height:80px;opacity:1;padding:12px 16px}
+.form-status.success{
+  background:rgba(39,174,96,.12);
+  border:1px solid rgba(39,174,96,.3);
+  color:rgba(39,174,96,.95);
+}
+.form-status.error{
+  background:rgba(220,50,47,.1);
+  border:1px solid rgba(220,50,47,.25);
+  color:rgba(220,50,47,.95);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.site-footer{
+  margin-top:48px;padding:24px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-email{
+  font-size:12px;
+  color:rgba(255,255,255,.4);
+  transition:color .3s;
+}
+.footer-email:hover{color:rgba(192,57,43,.85)}
+
+@media(max-width:540px){
+  .footer-inner{flex-direction:column;text-align:center}
+}
+
+/* ── Scroll Fade-In Animation ───────────────────────────────── */
+.fade-in{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s cubic-bezier(.4,0,.2,1),
+             transform .7s cubic-bezier(.4,0,.2,1);
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.fade-in:nth-child(2){transition-delay:.08s}
+.fade-in:nth-child(3){transition-delay:.16s}
+.fade-in:nth-child(4){transition-delay:.24s}
+.fade-in:nth-child(5){transition-delay:.32s}
+.fade-in:nth-child(6){transition-delay:.40s}
+.fade-in:nth-child(7){transition-delay:.48s}
+
+/* ── Light Theme ────────────────────────────────────────────── */
+body.light{background:#f1efec;color:#6b2523}
+body.light .theme-toggle{background:rgba(255,255,255,.82);border-color:rgba(107,37,35,.18);color:#6b2523}
+body.light .head h1{color:#6b2523}
+body.light .head p,body.light .muted{color:rgba(107,37,35,.72)}
+body.light .muted2{color:rgba(107,37,35,.64)}
+body.light .mono,body.light .label{color:rgba(107,37,35,.64)}
+body.light .card{background:rgba(255,255,255,.78);border-color:rgba(23,21,21,.12);box-shadow:0 12px 30px rgba(40,30,25,.06)}
+body.light .card:hover{border-color:rgba(23,21,21,.22);box-shadow:0 12px 40px rgba(40,30,25,.1)}
+body.light .card-ava{background:#d8d3cf}
+body.light .card-about p{color:rgba(107,37,35,.84)}
+body.light .chips span,body.light .track span{color:rgba(107,37,35,.72);background:rgba(107,37,35,.05);border-color:rgba(107,37,35,.14)}
+body.light .chips span:hover,body.light .track span:hover{background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.3);color:#6b2523}
+body.light .track img,body.light .links a img{filter:brightness(0) saturate(100%) invert(20%) sepia(28%) saturate(1800%) hue-rotate(330deg) brightness(78%) contrast(96%)}
+body.light .card-links{background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(244,241,238,.86))}
+body.light .links a{color:rgba(107,37,35,.82);background:rgba(107,37,35,.035);border-color:rgba(107,37,35,.16)}
+body.light .links a:hover{color:#6b2523;background:rgba(192,57,43,.1);border-color:rgba(192,57,43,.35);box-shadow:0 4px 16px rgba(192,57,43,.1)}
+
+/* light — contact */
+body.light .contact-section{background:rgba(255,255,255,.78);border-color:rgba(23,21,21,.12)}
+body.light .contact-section:hover{border-color:rgba(23,21,21,.18);box-shadow:0 8px 40px rgba(40,30,25,.06)}
+body.light .contact-subtitle{color:rgba(107,37,35,.6)}
+body.light .contact-section label{color:rgba(107,37,35,.7)}
+body.light .form-group input,body.light .form-group textarea{
+  background:rgba(107,37,35,.03);
+  border-color:rgba(107,37,35,.14);
+  color:#6b2523;
+}
+body.light .form-group input::placeholder,body.light .form-group textarea::placeholder{color:rgba(107,37,35,.3)}
+body.light .form-group input:focus,body.light .form-group textarea:focus{
+  border-color:rgba(192,57,43,.4);
+  background:rgba(107,37,35,.04);
+  box-shadow:0 0 0 3px rgba(192,57,43,.08);
+}
+body.light .submit-btn{background:rgba(192,57,43,.88);border-color:rgba(192,57,43,.35)}
+body.light .submit-btn:hover{background:rgba(192,57,43,1);border-color:rgba(192,57,43,.55);box-shadow:0 6px 24px rgba(192,57,43,.2)}
+body.light .site-footer{border-top-color:rgba(107,37,35,.08)}
+body.light .footer-email{color:rgba(107,37,35,.5)}
+body.light .footer-email:hover{color:rgba(192,57,43,.85)}
+
+@media(max-width:640px){
+  .theme-toggle{top:14px;right:16px;width:36px;height:36px}
+}
